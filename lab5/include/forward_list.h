@@ -3,13 +3,11 @@
 #include <utility>
 #include "forward_list_iterator.h"
 
-// Предварительное объявление
 class forward_list_memory_resource;
 
 template <typename T>
 class forward_list {
 public:
-    // Делаем Node публичным для итераторов
     struct Node {
         T value;
         Node* next;
@@ -29,7 +27,6 @@ public:
     using iterator = forward_list_iterator<T>;
     using const_iterator = forward_list_const_iterator<T>;
 
-    // Добавляем метод для получения размера Node
     static constexpr size_t node_size() {
         return sizeof(Node);
     }
@@ -122,7 +119,6 @@ private:
     forward_list(const forward_list&) = delete;
     forward_list& operator=(const forward_list&) = delete;
 
-    // Делаем итераторы друзьями для доступа к Node
     friend class forward_list_iterator<T>;
     friend class forward_list_const_iterator<T>;
 };

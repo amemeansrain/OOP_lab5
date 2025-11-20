@@ -116,7 +116,6 @@ TEST(MemoryResourceTest, ReuseMemory) {
     
     void* block2 = mr.allocate(sizeof(int), alignof(int));
     
-    // Память должна переиспользоваться
     EXPECT_EQ(block1, block2);
 }
 

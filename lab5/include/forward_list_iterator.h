@@ -1,14 +1,12 @@
 #pragma once
 #include <iterator>
 
-// Forward declaration для forward_list
 template <typename T>
 class forward_list;
 
 template <typename T>
 class forward_list_iterator {
 private:
-    // Используем публичный тип из forward_list
     typename forward_list<T>::Node* current_;
 
 public:
@@ -18,7 +16,6 @@ public:
     using pointer = T*;
     using reference = T&;
 
-    // Конструктор должен быть дружественным
     explicit forward_list_iterator(typename forward_list<T>::Node* node = nullptr) 
         : current_(node) {}
 
@@ -51,7 +48,6 @@ public:
         return current_ != other.current_;
     }
 
-    // Для доступа к текущему узлу
     typename forward_list<T>::Node* node() const {
         return current_;
     }

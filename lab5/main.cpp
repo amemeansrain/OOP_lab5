@@ -24,7 +24,6 @@ struct Employee {
 int main() {
     std::cout << "=== ДЕМОНСТРАЦИЯ FORWARD_LIST ===" << std::endl;
     
-    // Демонстрация с int - используем node_size() вместо прямого доступа к Node
     {
         forward_list_memory_resource mr(forward_list<int>::node_size(), 10);
         forward_list<int> numbers(&mr);
@@ -40,7 +39,6 @@ int main() {
         std::cout << std::endl;
     }
 
-    // Демонстрация со структурой
     {
         forward_list_memory_resource mr(forward_list<Employee>::node_size(), 5);
         forward_list<Employee> employees(&mr);
